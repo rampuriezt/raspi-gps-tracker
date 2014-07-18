@@ -89,6 +89,26 @@ $ gammu-smsd --config /etc/gammu-smsdrc --pid /var/run/gammu-smsd.pid --daemon
 # checking gammu-smsd service via log file
 
 $ tail -f /var/log/gammu.log
+Fri 2014/07/18 09:59:20 gammu-smsd[3335]: Starting phone communication...
+Fri 2014/07/18 09:59:28 gammu-smsd[3335]: Inserting phone info
+Fri 2014/07/18 10:10:02 gammu-smsd[3335]: Terminating communication...
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: Using SQL service
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: Configuring Gammu SMSD...
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: SHM token: 0xffffffffce02c051 (-838680495)
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: PIN code is "1234"
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: CommTimeout=30, SendTimeout=30, ReceiveFrequency=0, ResetFrequency=0, HardResetFrequency=0
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: checks: CheckSecurity=1, CheckBattery=1, CheckSignal=1
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: mode: Send=1, Receive=1
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: deliveryreport = log
+Fri 2014/07/18 10:19:17 gammu-smsd[3473]: phoneid = mdsms
+Fri 2014/07/18 10:19:17 gammu-smsd[3474]: Connected to Database: smsd on localhost
+Fri 2014/07/18 10:19:17 gammu-smsd[3474]: Database structures version: 13, SMSD current version: 13
+Fri 2014/07/18 10:19:17 gammu-smsd[3474]: Connected to Database native_mysql: smsd on localhost
+Fri 2014/07/18 10:19:17 gammu-smsd[3474]: Created POSIX RW shared memory at 0xb6f6a000
+Fri 2014/07/18 10:19:17 gammu-smsd[3474]: Starting phone communication...
+Fri 2014/07/18 10:19:25 gammu-smsd[3474]: Inserting phone info
+
+
 
 # testing sms sending via gammu-smsd-inject
  
