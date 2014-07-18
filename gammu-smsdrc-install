@@ -86,6 +86,10 @@ pc = localhost
  
 $ gammu-smsd --config /etc/gammu-smsdrc --pid /var/run/gammu-smsd.pid --daemon
 
+# checking gammu-smsd service via log file
+
+$ tail -f /var/log/gammu.log
+
 # testing sms sending via gammu-smsd-inject
  
 $ gammu-smsd-inject TEXT 13912345678 -unicode -text
