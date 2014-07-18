@@ -64,6 +64,13 @@ $ cp /usr/share/doc/gammu-smsd/examples/mysql.sql.gz /tmp/
 $ gunzip /tmp/mysql.sql.gz
 $ mysql YOUR_DB_NAME -u MYSQL_USER_NAME -p  < /tmp/mysql.sql
  
+
+# backup file gammu-smsdrc
+$ sudo cp /etc/gammu-smsdrc /etc/gammu-smsdrc.bak
+
+# Edit file gammu-smsdrc
+$ sudo nano /etc/gammu-smsdrc
+
 # Configuration file for Gammu SMS Daemon
 
 # Gammu library configuration, see gammurc(5)
@@ -72,15 +79,14 @@ device = /dev/ttyUSB1
 connection = at19200
 
 [smsd]
-
 PIN=1234
-runonreceive = /home/device-clients/runonreceive.py
+#runonreceive = /home/device-clients/runonreceive.py
 logfile = /var/log/gammu.log
 debuglevel = 1 
 commtimeout = 30
 sendtimeout = 30
 deliveryreport = log
-phoneid = mdsms
+phoneid = GPS-Tracker
 transmitformat = auto
 
 # Storage - MySQL
