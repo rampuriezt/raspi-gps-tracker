@@ -1,0 +1,92 @@
+# gammu-smsd installation
+
+# install webserver 
+
+sudo apt-get install apache2 -y
+
+# install php 
+
+sudo apt-get install php5 libapache2-mod-php5 -y
+
+# checking installed php
+
+cd /var/www/
+
+sudo mv index.html index.php
+
+sudo nano index.php
+
+<?php 
+echo "hello world";
+echo date('Y-m-d H:i:s');
+phpinfo();
+?>
+
+# install database server
+
+sudo apt-get install mysql-server php5-mysql -y
+
+
+mysql> create database smsd;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> GRANT USAGE ON *.* TO smsd@localhost IDENTIFIED BY 'YOUR_PASSWORD';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT SELECT, INSERT, UPDATE, DELETE ON smsd.* to smsd@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+Bye
+
+$ cp /usr/share/doc/gammu-smsd/examples/mysql.sql.gz /tmp/
+$ gunzip /tmp/mysql.sql.gz
+$ mysql -u USER_NAME -pUSER_PASSWORD YOUR_DB_NAME < /tmp/mysql.sql
+ 
+# Configuration file for Gammu SMS Daemon
+
+# Gammu library configuration, see gammurc(5)
+[gammu]
+device = /dev/ttyUSB1
+connection = at19200
+
+[smsd]
+
+PIN=1234
+runonreceive = /home/device-clients/runonreceive.py
+logfile = /var/log/gammu.log
+debuglevel = 1 
+commtimeout = 30
+sendtimeout = 30
+deliveryreport = log
+phoneid = mdsms
+transmitformat = auto
+
+# Storage - MySQL
+service = SQL
+driver = native_mysql
+database = smsd
+user = root
+password = 123456
+pc = localhost
+
+# Storage - Files
+# service = FILES
+# inboxpath = /home/milosz/sms/inbox/
+# outboxpath = /home/milosz/sms/outbox/
+# sentsmspath = /home/milosz/sms/sent/
+# errorsmspath = /home/milosz/sms/error/
+# inboxformat = standard
+ 
+ 
+# run gammu-smsd as daemon
+ 
+$ gammu-smsd --config /etc/gammu-smsdrc --pid /var/run/gammu-smsd.pid --daemon
+
+# testing sms sending via gammu-smsd-inject
+ 
+$ gammu-smsd-inject TEXT 13912345678 -unicode -text
+ 
