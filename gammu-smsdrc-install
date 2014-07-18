@@ -26,8 +26,26 @@ phpinfo();
 
 sudo apt-get install mysql-server php5-mysql -y
 
+# install phpmyadmin
 
-mysql> create database smsd;
+$ sudo apt-get install phpmyadmin
+
+$ mysql -u [user] -p [pass]
+Enter password : 
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| gpslog             |
+| mysql              |
+| performance_schema |
+| smsd               |
+| testdb             |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE smsd;
 Query OK, 1 row affected (0.00 sec)
 
 mysql> GRANT USAGE ON *.* TO smsd@localhost IDENTIFIED BY 'YOUR_PASSWORD';
