@@ -62,7 +62,7 @@ Bye
 
 $ cp /usr/share/doc/gammu-smsd/examples/mysql.sql.gz /tmp/
 $ gunzip /tmp/mysql.sql.gz
-$ mysql -u USER_NAME -pUSER_PASSWORD YOUR_DB_NAME < /tmp/mysql.sql
+$ mysql YOUR_DB_NAME -u MYSQL_USER_NAME -p  < /tmp/mysql.sql
  
 # Configuration file for Gammu SMS Daemon
 
