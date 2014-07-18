@@ -138,3 +138,39 @@ Fri 2014/07/18 10:19:25 gammu-smsd[3474]: Inserting phone info
  
 $ gammu-smsd-inject TEXT 13912345678 -unicode -text
  
+# instalasi kalkun content management system
+# download kalkun cms
+$ cd /tmp/
+$ wget http://sourceforge.net/projects/kalkun/files/kalkun/0.7.1/kalkun_0.7.1.tar.gz
+$ sudo mkdir /var/www/kalkun
+$ sudo tar xvzf kalkun_0.7.1.tar.gz -C /var/www/kalkun
+
+# edit file konfigurasi
+$ sudo nano /var/www/kalkun/application/config/database.php
+
+# ubah 
+$db['default']['hostname'] = "localhost";
+$db['default']['username'] = "root";
+$db['default']['password'] = "123456";
+$db['default']['database'] = "smsd";
+$db['default']['dbdriver'] = "mysql";
+
+# update database gammu 
+mysql smsd -u root -p < /var/www/kalkun/media/db/mysql_kalkun.sql
+
+# install via web browser
+http://[ip address]/kalkun/index.php/install
+
+# ikuti petunjuk
+
+untuk login gunakan 
+
+username : kalkun
+password : kalkun
+
+
+
+
+
+
+
