@@ -168,6 +168,14 @@ untuk login gunakan
 username : kalkun
 password : kalkun
 
+# Edit File 
+sudo nano /var/www/kalkun/index.php
+
+# set date time ke Asia/jakarta
+
+ date_default_timezone_set('Asia/Jakarta');
+
+
 
 
 
