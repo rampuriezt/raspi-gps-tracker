@@ -1,0 +1,10 @@
+
+install requirement library
+
+$ sudo apt-get install python-twisted python-pip
+
+$ sudo pip install pynmea2
+
+
+
+
